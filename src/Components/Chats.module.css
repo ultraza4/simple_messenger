@@ -1,0 +1,11 @@
+.ChatsPage {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+}
+
+.Chats {
+    
+}
+
+.Messeges {
+}
