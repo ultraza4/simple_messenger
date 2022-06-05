@@ -1,9 +1,34 @@
 import React from "react";
+import style from "../components/MessagesPage.module.css"
+import ChatMessage from "./ChatMessage";
+import { Form, Field } from 'react-final-form'
 
-const MessegesPage = () => {
-    return(<>
-        Message 1
+const MessagesPage = () => {
+
+    let SendMessage = () => {
+
+    }
+
+    return (<>
+        <div className={style.Message}>
+            <ChatMessage />
+        </div>
+        <div className={style.Send_Form}>
+            <Form
+                onSubmit={SendMessage}
+                render={({ handleSubmit }) => (
+                    <form onSubmit={handleSubmit}>
+                        <Field name="newMessageText"
+                            component="textarea" placeholder="Enter your message"
+                        />
+                        <div>
+                            <button>Send Message</button>
+                        </div>
+                    </form>
+                )}
+            />
+        </div>
     </>)
 }
 
-export default MessegesPage;
+export default MessagesPage;

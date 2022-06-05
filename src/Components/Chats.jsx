@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import ChatItem from "./ChatItem";
+import ChatUserItem from "./ChatUserItem";
 import style from "./Chats.module.css"
 
 const Chats = () => {
@@ -8,11 +8,11 @@ const Chats = () => {
         <main className="container">
             <div className={style.ChatsPage}>
                 <div className={style.Chats}>
-                    <ChatItem />
-                    <ChatItem />
-                    <ChatItem />
+                    <ChatUserItem />
+                    <ChatUserItem />
+                    <ChatUserItem />
                 </div>
-                <div className={style.Messeges}>
+                <div className={style.Messages}>
                     <Outlet />
                 </div>
             </div>
