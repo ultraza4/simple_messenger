@@ -3,7 +3,9 @@ import style from "../components/MessagesPage.module.css"
 import ChatMessage from "./ChatMessage";
 import { Form, Field } from 'react-final-form'
 
-const MessagesPage = () => {
+const MessagesPage = (props) => {
+
+    let ChatMessages = props.MessagesPage.messages.map(m => <ChatMessage key={m.id} message={m.message} id={m.id} />)
 
     let SendMessage = () => {
 
@@ -11,7 +13,7 @@ const MessagesPage = () => {
 
     return (<>
         <div className={style.Message}>
-            <ChatMessage />
+            {ChatMessages}
         </div>
         <div className={style.Send_Form}>
             <Form

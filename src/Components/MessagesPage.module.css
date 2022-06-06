@@ -5,3 +5,7 @@
 .Send_Form {
    border: 2px cyan solid;
 }
+
+.ChatMessage {
+   padding: 0px 10px;
+}
