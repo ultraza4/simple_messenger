@@ -7,8 +7,8 @@ const MessagesPage = (props) => {
 
     let ChatMessages = props.MessagesPage.messages.map(m => <ChatMessage key={m.id} message={m.message} id={m.id} />)
 
-    let SendMessage = () => {
-
+    let SendMessage = (value) => {
+        props.onSendMessage(value.newMessageText)
     }
 
     return (<>
