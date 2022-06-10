@@ -1,5 +1,7 @@
 .Message {
    height: 300px;
+   overflow: hidden;
+   overflow-y: scroll;
 }
 
 .Send_Form {
@@ -7,5 +9,5 @@
 }
 
 .ChatMessage {
-   padding: 0px 10px;
+   padding: 5px 10px;
 }
