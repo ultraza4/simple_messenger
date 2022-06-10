@@ -4,15 +4,19 @@ import ChatUserItem from "./ChatUserItem";
 import style from "./Chats.module.css"
 import { connect } from "react-redux";
 import SignIn from "./SignIn";
+import { auth } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import SignOut from "./SignOut";
 
 const Chats = (props) => {
     let ChatUsers = props.MessagesPage.dialogs.map(m => <ChatUserItem key={m.id} name={m.name} id={m.id} />)
-
+    const [isUserLogedIn] = useAuthState(auth);
     return (<>
+        {isUserLogedIn ? 
         <main className="container">
+            <SignOut />
             <div className={style.ChatsPage}>
-                <div className={style.Chats}>
-                    <SignIn />
+                <div className={style.Chats}> 
                     {ChatUsers}
                 </div>
                 <div className={style.Messages}>
@@ -20,6 +24,7 @@ const Chats = (props) => {
                 </div>
             </div>
         </main>
+        :<SignIn />}
     </>)
 }
 
