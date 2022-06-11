@@ -6,13 +6,13 @@ import { Form, Field } from 'react-final-form';
 import {db,auth} from '../firebase';
 
 const SendForm = ({scroll}) => {
-
     async function SendMessage(value){
-        const {uid} = auth.currentUser;
-
+        const {uid, photoURL,displayName} = auth.currentUser;
         await db.collection("textMessages").add({
             text: value.newMessageText,
             uid,
+            photoURL,
+            displayName,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
         scroll.current.scrollIntoView({behavior: 'smooth'});
@@ -22,13 +22,13 @@ const SendForm = ({scroll}) => {
     return (<>
         <Form
             onSubmit={SendMessage}
-            render={({ handleSubmit,reset }) => (
-                <form onSubmit={event => {handleSubmit(event).then(reset)}}>
+            render={({ handleSubmit }) => (
+                <form onSubmit={handleSubmit}>
                     <Field name="newMessageText"
                         component="input" placeholder="Enter your message"
                     />
                     <div>
-                        <button onClick={reset}>Send Message</button>
+                        <button>Send Message</button>
                     </div>
                 </form>
             )}

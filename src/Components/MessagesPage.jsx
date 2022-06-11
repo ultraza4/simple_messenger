@@ -28,9 +28,9 @@ const MessagesPage = (props) => {
             {messages.map((message) =>(
                 <>
                 <div key={message.id}>
-                    <ChatMessage message = {message.text} />
+                    <ChatMessage photoURL ={message.photoURL} message = {message.text} />
                 </div>
-                <div ref={scroll}></div>
+                <div  ref={scroll}></div>
                 </>
             ))}
         </div>
