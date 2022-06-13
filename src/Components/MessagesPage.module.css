@@ -1,5 +1,5 @@
 .Message {
-   height: 300px;
+   height: 500px;
    overflow: hidden;
    overflow-y: scroll;
 }
@@ -8,12 +8,27 @@
    border: 2px cyan solid;
 }
 
-.messageItem {
+.messageItemWrapper {
+   display: block;
+}
+
+.messageItemOwnWrapper {
    display: flex;
-   padding: 5px 10px;
+   justify-content: right;
+}
+
+.messageItem {
+   width: 40%;
+   display: flex;
+   margin: 5px 10px;
+   padding: 5px;
+   border: 1px seagreen solid;
+   border-radius: 15px;
+   
 }
 
 .ChatMessage {
+   max-width: 100%;
    margin-left: 10px;
    padding-top: 5px;
 }

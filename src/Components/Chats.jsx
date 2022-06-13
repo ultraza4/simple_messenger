@@ -1,34 +1,43 @@
 import React, { useEffect,useState  } from "react";
 import { Outlet } from "react-router-dom";
 import { auth, db } from "../firebase";
+import ChatUserItem from "./ChatUserItem";
 import style from "./Chats.module.css";
 
 const Chats = (props) => {
-    const [usersId, setUsersId] = useState([]);
+    const [users, setUsers] = useState([]);
     const [isLoading, setLoading] = useState(true);
-    
+
     useEffect(() => {
         const { uid, photoURL, displayName } = auth.currentUser;
+        let isOldUser = false;
         db.collection('users').onSnapshot((snapshot) =>{
-            setUsersId(snapshot.docs.map((doc) => doc.data().uid));
+            setUsers(snapshot.docs.map((doc) => doc.data()));
             setLoading(false);
-        }) 
-        let isOldUser = usersId.includes(uid);
+        })
+        
+        for(let i = 0; users.length > i; i++){
+            if(users[i].uid === uid){
+                isOldUser  = true;
+            }
+        }
+        
         if (!isOldUser) {
-            if(usersId.length > 0)
+            if(users.length > 0)
             db.collection("users").add({
                 uid,
                 photoURL,
                 displayName,
             })
         }
-        debugger;
     },[isLoading]);
 
     return (<>
         <div className={style.ChatsPage}>
             <div className={style.Chats}>
-                {props.ChatUsers}
+                {users.map((user) =>{
+                    return <ChatUserItem id = {user.uid} name ={user.displayName} photoURL ={user.photoURL} />
+                })}
             </div>
             <div className={style.Messages}>
                 <Outlet />
