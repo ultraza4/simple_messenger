@@ -26,12 +26,10 @@ const MessagesPage = (props) => {
     return (<>
         <div className={style.Message}>
             {messages.map((message) =>(
-                <>
-                <div key={message.id}>
-                    <ChatMessage photoURL ={message.photoURL} message = {message.text} />
-                </div>
+                <div key={message.createdAt}> 
+                    <ChatMessage userName={message.displayName} photoURL ={message.photoURL} message = {message.text} />
                 <div  ref={scroll}></div>
-                </>
+                </div>
             ))}
         </div>
         <div className={style.Send_Form}>

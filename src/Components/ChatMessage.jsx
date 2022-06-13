@@ -7,7 +7,12 @@ const ChatMessage = (props) => {
          <div className={style.profielPhoto}>
             <img src={props.photoURL} alt="userProfilePicture" />
          </div>
-         <div className={style.ChatMessage}>{props.message}</div>
+         <div className={style.ChatMessage}>
+            <div className={style.userName}>
+               {props.userName}
+            </div>
+            {props.message}
+         </div>
       </div>
    )
 }

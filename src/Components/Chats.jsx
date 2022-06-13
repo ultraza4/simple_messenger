@@ -1,37 +1,40 @@
-import React from "react";
+import React, { useEffect,useState  } from "react";
 import { Outlet } from "react-router-dom";
-import ChatUserItem from "./ChatUserItem";
-import style from "./Chats.module.css"
-import { connect } from "react-redux";
-import SignIn from "./SignIn";
-import { auth } from "../firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
-import SignOut from "./SignOut";
+import { auth, db } from "../firebase";
+import style from "./Chats.module.css";
 
 const Chats = (props) => {
-    let ChatUsers = props.MessagesPage.dialogs.map(m => <ChatUserItem key={m.id} name={m.name} id={m.id} />)
-    const [isUserLogedIn] = useAuthState(auth);
+    const [usersId, setUsersId] = useState([]);
+    const [isLoading, setLoading] = useState(true);
+    
+    useEffect(() => {
+        const { uid, photoURL, displayName } = auth.currentUser;
+        db.collection('users').onSnapshot((snapshot) =>{
+            setUsersId(snapshot.docs.map((doc) => doc.data().uid));
+            setLoading(false);
+        }) 
+        let isOldUser = usersId.includes(uid);
+        if (!isOldUser) {
+            if(usersId.length > 0)
+            db.collection("users").add({
+                uid,
+                photoURL,
+                displayName,
+            })
+        }
+        debugger;
+    },[isLoading]);
+
     return (<>
-        {isUserLogedIn ? 
-        <main className="container">
-            <SignOut />
-            <div className={style.ChatsPage}>
-                <div className={style.Chats}> 
-                    {ChatUsers}
-                </div>
-                <div className={style.Messages}>
-                    <Outlet />
-                </div>
+        <div className={style.ChatsPage}>
+            <div className={style.Chats}>
+                {props.ChatUsers}
             </div>
-        </main>
-        :<SignIn />}
+            <div className={style.Messages}>
+                <Outlet />
+            </div>
+        </div>
     </>)
 }
 
-const mapStateToProps = (state) => {
-    return {
-        MessagesPage: state.MessagesPage
-    }
-}
-
-export default connect(mapStateToProps, {})(Chats);
+export default Chats;

@@ -7,11 +7,7 @@ let initState = {
         { id: 3, name: 'Daut' },
         { id: 4, name: 'Chitos' }
     ],
-    messages: [
-        { id: 1, message: 'Hello' },
-        { id: 2, message: 'Azamat' },
-        { id: 3, message: 'Mirza' },
-    ],
+    users: []
 }
 
 const MessagesPageReducer = (state = initState, action) => {
