@@ -17,15 +17,14 @@ const MessagesPage = (props) => {
             .orderBy("createdAt")
             .onSnapshot((snapshot) => {
                 setMessages(snapshot.docs.map((doc) => {
-                    if(doc.data().uid === uid || doc.data().sendTo === uid) {
+                    if (doc.data().uid === uid || doc.data().uid === chatId) {
                         return doc.data();
                     }
-                    return ;
+                    return [];
                 }));
                 setLoading(false);
             });
-            debugger;
-    }, [])
+    }, [chatId])
 
     if (loading) {
         return <h2>Messages are loading...</h2>
@@ -33,18 +32,20 @@ const MessagesPage = (props) => {
 
     return (<>
         <div className={style.Message}>
-            {messages.map((message) => (
-                <div key={message.createdAt}>
-                    <ChatMessage
-                        userName={message.displayName}
-                        photoURL={message.photoURL}
-                        message ={message.text}
-                        uid={message.uid} />
+            {messages.map((message) => {
+                if (message.length !== 0 && (message.sendTo === chatId || message.sendTo === uid)) {
+                    return <div key={message.createdAt}>
+                        <ChatMessage
+                            userName={message.displayName}
+                            photoURL={message.photoURL}
+                            message={message.text}
+                            uid={message.uid} />
                         <div ref={scroll}></div>
-                </div>
-            ))}
+                    </div>
+                }
+            })}
         </div>
-        
+
         <div className={style.Send_Form}>
             <SendForm sendTo={chatId} scroll={scroll} />
         </div>
