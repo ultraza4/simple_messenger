@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='https://ultraza4.github.io/simple-messanger/' element={<MainPage />}>
+        <Route path='/simple-messanger' element={<MainPage />}>
           <Route path='/simple-messanger/MessagesPage/:chatId' element={<MessagesPageContainer />} />
         </Route>
       </Routes>

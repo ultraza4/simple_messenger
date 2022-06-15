@@ -2,7 +2,7 @@
   "name": "messenger",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ultraza4.github.io/simple_messenger",
+  "homepage": "https://ultraza4.github.io/simple-messanger",
   "dependencies": {
     "-": "^0.0.1",
     "@reduxjs/toolkit": "^1.8.2",
