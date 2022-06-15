@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import MessagesPageContainer from './components/MessagesPageContainer';
+import MessagesPage from './components/MessagesPage';
 import MainPage from './components/MainPage';
 import './App.css';
 
@@ -8,8 +8,9 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/simple_messenger' element={<MainPage />}>
-          <Route path='/simple_messenger/MessagesPage/:chatId' element={<MessagesPageContainer />} />
+          <Route path='/simple_messenger/MessagesPage/:chatId' element={<MessagesPage />} />
         </Route>
+        {/* <Route path='/simple_messenger/MessagesPage/:chatId' element={<MessagesPage />} /> */}
       </Routes>
     </div>
   );

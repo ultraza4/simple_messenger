@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./Chats.module.css"
 
 const ChatUserItem = (props) => {
-    let path = 'simple_messenger/MessagesPage/' + props.id;
+    let path = '/simple_messenger/MessagesPage/' + props.id;
     return (<>
         <Link to={path}>
             <div className={props.isActiveUser ? style.ChatItemActive : style.ChatItem}>
