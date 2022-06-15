@@ -7,39 +7,33 @@ import { useParams } from "react-router-dom";
 
 const Chats = (props) => {
     const [users, setUsers] = useState([]);
-    const [isLoading, setLoading] = useState(true);
+    const [isOldUser, setOldUser] = useState(false);
     let { chatId } = useParams();
 
     useEffect(() => {
         const { uid, photoURL, displayName } = auth.currentUser;
-        let isOldUser = false;
-        
-        db.collection('users').onSnapshot((snapshot) => {
+        db.collection('users').get()
+        .then((snapshot) => {
             snapshot.docs.forEach((doc) => {
-                setUsers((users) => [...users, doc.data()]);
+                if(users.length === 0 && doc.data().uid !== uid) setUsers((users) => [...users, doc.data()]);
+                if(doc.data().uid === uid) setOldUser(true);
             })
         })
-
-        users.forEach((user) => {
-            if (user.uid == uid) isOldUser = true;
-        })
-
-        if (!isOldUser) {
-            if (users.length > 0)
-                db.collection("users").add({
-                    uid,
-                    photoURL,
-                    displayName,
-                })
+        
+        if ((!isOldUser) && (users.length > 0)) {
+            db.collection("users").add({
+                uid,
+                photoURL,
+                displayName,
+            })
         }
-        debugger;
-    }, []);
+    }, [users,isOldUser]);
 
     return (<>
         <div className={style.ChatsPage}>
             <div className={style.Chats}>
                 {users.map((user) => {
-                    return <ChatUserItem isActiveUser={user.uid === chatId ? true : false} id={user.uid} name={user.displayName} photoURL={user.photoURL} />
+                    return  <ChatUserItem isActiveUser={user.uid === chatId ? true : false} id={user.uid} name={user.displayName} photoURL={user.photoURL} />
                 })}
             </div>
             <div className={style.Messages}>
