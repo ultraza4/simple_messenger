@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/simple-messanger' element={<MainPage />}>
-          <Route path='/simple-messanger/MessagesPage/:chatId' element={<MessagesPageContainer />} />
+        <Route path='/simple_messenger' element={<MainPage />}>
+          <Route path='/simple_messenger/MessagesPage/:chatId' element={<MessagesPageContainer />} />
         </Route>
       </Routes>
     </div>
