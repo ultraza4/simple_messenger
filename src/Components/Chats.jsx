@@ -5,7 +5,7 @@ import ChatUserItem from "./ChatUserItem";
 import style from "./Chats.module.css";
 import { useParams } from "react-router-dom";
 
-const Chats = (props) => {
+const Chats = () => {
     const [users, setUsers] = useState([]);
     const [isOldUser, setOldUser] = useState(false);
     let { chatId } = useParams();
