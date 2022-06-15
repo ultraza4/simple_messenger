@@ -1,3 +1,7 @@
+a {
+    text-decoration: none;
+}
+
 .ChatsPage {
     display: grid;
     grid-template-columns: 3fr 7fr;
@@ -30,7 +34,7 @@
     height: 50px;
 }
 
-.user_name a {
+.user_name {
     padding-left: 10px;
     text-transform: uppercase;
     text-decoration: none;
