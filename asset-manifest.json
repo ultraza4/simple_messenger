@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/simple_messenger/static/css/main.4dd6e4e0.css",
+    "main.js": "/simple_messenger/static/js/main.e0fcbff0.js",
+    "index.html": "/simple_messenger/index.html",
+    "main.4dd6e4e0.css.map": "/simple_messenger/static/css/main.4dd6e4e0.css.map",
+    "main.e0fcbff0.js.map": "/simple_messenger/static/js/main.e0fcbff0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4dd6e4e0.css",
+    "static/js/main.e0fcbff0.js"
+  ]
+}
