@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import style from "../components/MessagesPage.module.css"
+import style from "./MessagesPage.module.css"
 import ChatMessage from "./ChatMessage";
-import SendForm from "./SendForm";
-import { auth, db } from "../firebase";
+import SendForm from "../SendForm";
+import { auth, db } from "../../firebase";
 import { useParams } from "react-router-dom";
 
 const MessagesPage = (props) => {
@@ -23,7 +23,6 @@ const MessagesPage = (props) => {
                     return [];
                 }));
                 setLoading(false);
-                scroll.current.scrollIntoView({behavior: 'smooth'});
             });
     }, [chatId])
 

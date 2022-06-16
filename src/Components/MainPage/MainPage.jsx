@@ -1,9 +1,9 @@
 import React from "react";
-import SignIn from "./SignIn";
-import { auth } from "../firebase";
+import SignIn from "../SignIn/SignIn";
+import { auth } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import SignOut from "./SignOut";
-import Chats from "./Chats";
+import SignOut from "../SignOut/SignOut";
+import Chats from "../Chats/Chats";
 import style from "./MainPage.module.css"
 
 const MainPage = () => {

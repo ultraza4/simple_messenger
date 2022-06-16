@@ -10,22 +10,22 @@ a {
 .Chats {}
 
 .Messages {
-    margin: 20px 10px;
-    background-color: aquamarine;;
+    margin: 0px 10px;
+    background-color: aquamarine;
     opacity: 90%;
 }
 
 .ChatItem {
     display: flex;
     align-items: center;
-    margin: 20px 0;
+    margin-bottom: 20px;
     background-color: aquamarine;
 }
 
 .ChatItemActive {
     display: flex;
     align-items: center;
-    margin: 20px 0;
+    margin-bottom: 20px;
     background-color: blueviolet;
     border-radius: 15px;
 }

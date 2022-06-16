@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./MessagesPage.module.css";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 
 const ChatMessage = (props) => {
    const { uid } = auth.currentUser;

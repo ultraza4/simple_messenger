@@ -2,8 +2,9 @@ import React from "react";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import { auth } from '../firebase';
-import style from "./SignInPage.module.css"
+import { auth } from '../../firebase';
+import style from "./SignInPage.module.css";
+import Button from '@mui/material/Button';
 
 const SignIn = () => {
     function signInWithGoogle() {
@@ -14,11 +15,11 @@ const SignIn = () => {
         <div className={style.SignInPage}>
             <div>
                 <div className={style.header}>
-                    Welcome to my messanger!
+                    Welcome to my messanger
                 </div>
             </div>
-            <div>
-                <button onClick={signInWithGoogle}>Sign In With Google</button>
+            <div className={style.button}>
+                <Button variant="outlined" onClick={signInWithGoogle}>Sign In With Google</Button>
             </div>
         </div>
     )

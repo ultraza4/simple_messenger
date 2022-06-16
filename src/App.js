@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import MessagesPage from './components/MessagesPage';
-import MainPage from './components/MainPage';
+import MessagesPage from './components/MessagesPage/MessagesPage';
+import MainPage from './components/MainPage/MainPage';
 import style from './App.module.css';
 import './index.css';
 
