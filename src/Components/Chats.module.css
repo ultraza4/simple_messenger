@@ -11,7 +11,8 @@ a {
 
 .Messages {
     margin: 20px 10px;
-    background-color: bisque;
+    background-color: aquamarine;;
+    opacity: 90%;
 }
 
 .ChatItem {

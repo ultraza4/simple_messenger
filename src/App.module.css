@@ -1,0 +1,7 @@
+.App {
+   height: 100vh;
+   background: url(./assets/images/pexels-johannes-plenio-1103970.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+	background-repeat: no-repeat;
+}

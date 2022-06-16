@@ -1,0 +1,22 @@
+.SignInPage {
+    height: 100%;
+    padding-top: 300px;
+    /* background: url(../assets/images/pexels-johannes-plenio-1103970.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+	background-repeat: no-repeat;  */
+    text-align: center; 
+    overflow: hidden;
+}
+
+.header {
+    display: inline-block;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 15px;
+    color: wheat;
+    margin: 0 auto;
+    background-color: rgb(59, 59, 216);
+}

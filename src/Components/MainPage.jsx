@@ -4,18 +4,21 @@ import { auth } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import SignOut from "./SignOut";
 import Chats from "./Chats";
+import style from "./MainPage.module.css"
 
 const MainPage = () => {
     const [isUserLogedIn] = useAuthState(auth);
     
-    return (<>
+    return (
+    <div className={style.mainPage}>
         {isUserLogedIn ?
-            <main className="container">
+            <main className={style.container}>
                 <SignOut />
                 <Chats  />
             </main>
             : <SignIn />}
-    </>)
+    </div>
+    )
 }
 
 export default MainPage;

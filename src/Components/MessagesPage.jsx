@@ -23,6 +23,7 @@ const MessagesPage = (props) => {
                     return [];
                 }));
                 setLoading(false);
+                scroll.current.scrollIntoView({behavior: 'smooth'});
             });
     }, [chatId])
 
