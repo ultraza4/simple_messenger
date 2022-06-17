@@ -6,7 +6,7 @@ import { Form, Field } from 'react-final-form';
 import {db,auth} from '../firebase';
 
 const SendForm = ({scroll, sendTo}) => {
-    
+    let isNewMessage = true;
     async function SendMessage(value){
         const {uid, photoURL,displayName} = auth.currentUser;
         await db.collection("textMessages").add({
@@ -15,7 +15,8 @@ const SendForm = ({scroll, sendTo}) => {
             photoURL,
             displayName,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-            sendTo: sendTo
+            sendTo: sendTo,
+            isNewMessage: isNewMessage
         })
         scroll.current.scrollIntoView({behavior: 'smooth'});
         value.newMessageText = "";

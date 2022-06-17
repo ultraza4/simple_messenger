@@ -20,6 +20,7 @@ a {
     align-items: center;
     margin-bottom: 20px;
     background-color: aquamarine;
+    position: relative;
 }
 
 .ChatItemActive {
@@ -28,6 +29,7 @@ a {
     margin-bottom: 20px;
     background-color: blueviolet;
     border-radius: 15px;
+    position: relative;
 }
 
 .user_avatar {
@@ -40,4 +42,25 @@ a {
     text-transform: uppercase;
     text-decoration: none;
     color: black;
+}
+
+.newMessagesIcon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    display: inline-block;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 0;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    font-weight: 700;
+    border-radius: 50%;
+    background-color: rgb(13, 50, 62);
+}
+.notNewMessages {
+    width: 30px;
+    height: 30px;
 }

@@ -9,16 +9,16 @@ const Chats = () => {
     const [users, setUsers] = useState([]);
     const [isOldUser, setOldUser] = useState(false);
     let { chatId } = useParams();
-
+    const { uid, photoURL, displayName } = auth.currentUser;
+    
     useEffect(() => {
-        const { uid, photoURL, displayName } = auth.currentUser;
         db.collection('users').get()
             .then((snapshot) => {
                 snapshot.docs.forEach((doc) => {
                     if (users.length === 0 && doc.data().uid !== uid) setUsers((users) => [...users, doc.data()]);
                     if (doc.data().uid === uid) setOldUser(true);
                 })
-            })
+            })  
 
         if ((!isOldUser) && (users.length > 0)) {
             db.collection("users").add({
@@ -34,7 +34,10 @@ const Chats = () => {
             <div className={style.Chats}>
                 {users.map((user) => {
                     return <div key={user.uid}>
-                        <ChatUserItem isActiveUser={user.uid === chatId ? true : false} id={user.uid} name={user.displayName} photoURL={user.photoURL} />
+                        <ChatUserItem 
+                        isActiveUser={user.uid === chatId ? true : false} 
+                        id={user.uid} name={user.displayName} 
+                        photoURL={user.photoURL} />
                     </div>
                 })}
             </div>
