@@ -16,7 +16,13 @@ const Chats = () => {
             .then((snapshot) => {
                 snapshot.docs.forEach((doc) => {
                     if (users.length === 0 && doc.data().uid !== uid) setUsers((users) => [...users, doc.data()]);
-                    if (doc.data().uid === uid) setOldUser(true);
+                    if (doc.data().uid === uid) {
+                        setOldUser(true);
+                        doc.ref.update({
+                            isOnline: true
+                        });
+                        debugger;
+                    }
                 })
             })  
 
@@ -25,6 +31,7 @@ const Chats = () => {
                 uid,
                 photoURL,
                 displayName,
+                isOnline: false
             })
         }
     }, [users, isOldUser]);
@@ -37,7 +44,8 @@ const Chats = () => {
                         <ChatUserItem 
                         isActiveUser={user.uid === chatId ? true : false} 
                         id={user.uid} name={user.displayName} 
-                        photoURL={user.photoURL} />
+                        photoURL = {user.photoURL}
+                        isOnline = {user.isOnline} />
                     </div>
                 })}
             </div>
