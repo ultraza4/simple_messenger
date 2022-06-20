@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/simple_messenger/static/css/main.4c73230d.css",
-    "main.js": "/simple_messenger/static/js/main.0c3bffb1.js",
+    "main.js": "/simple_messenger/static/js/main.5e8ea855.js",
     "static/media/pexels-johannes-plenio-1103970.jpg": "/simple_messenger/static/media/pexels-johannes-plenio-1103970.f100e5ec11b4eb6bf10d.jpg",
     "index.html": "/simple_messenger/index.html",
     "main.4c73230d.css.map": "/simple_messenger/static/css/main.4c73230d.css.map",
-    "main.0c3bffb1.js.map": "/simple_messenger/static/js/main.0c3bffb1.js.map"
+    "main.5e8ea855.js.map": "/simple_messenger/static/js/main.5e8ea855.js.map"
   },
   "entrypoints": [
     "static/css/main.4c73230d.css",
-    "static/js/main.0c3bffb1.js"
+    "static/js/main.5e8ea855.js"
   ]
 }
