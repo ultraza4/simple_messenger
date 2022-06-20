@@ -4,7 +4,7 @@ import style from "./Chats.module.css";
 import { db, auth } from "../../firebase";
 
 const ChatUserItem = (props) => {
-    let path = '/simple_messenger/MessagesPage/' + props.id;
+    let path = '/MessagesPage/' + props.id;
     const [count, setCount] = useState(0);
     const { uid } = auth.currentUser;
 

@@ -8,8 +8,8 @@ function App() {
   return (
     <div className={style.App}>
       <Routes>
-        <Route path='/simple_messenger' element={<MainPage />}>
-          <Route path='/simple_messenger/MessagesPage/:chatId' element={<MessagesPage />} />
+        <Route path='/' element={<MainPage />}>
+          <Route path='/MessagesPage/:chatId' element={<MessagesPage />} />
         </Route>
         {/* <Route path='/simple_messenger/MessagesPage/:chatId' element={<MessagesPage />} /> */}
       </Routes>
