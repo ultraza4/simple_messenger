@@ -11,6 +11,7 @@ const MainPage = () => {
     
     return (
     <div className={style.mainPage}>
+        <div>Task number 3</div>
         {isUserLogedIn ?
             <main className={style.container}>
                 <SignOut />
